@@ -1,0 +1,29 @@
+# POE Chat Assistant
+
+An assistant that allows you to chat with POE bots using either text or voice.
+
+## Features
+
+- Record audio using your microphone and convert it to text using the Whisper ASR model.
+- Send text or converted voice input to a POE bot using the POE API client.
+- Receive responses from the POE bot and convert them to speech using Microsoft's SpeechT5 text-to-speech model.
+- Save chat history to a text file.
+- Set the duration of audio recordings.
+- Switch between different POE bot models.
+- Completely free as it uses a reverse engineered poe api. This can basically be used as an alternative to chat gpt api, which is not free.
+
+## Usage
+
+1. Install requirements: `pip install -r requirements.txt`
+2. Setup a POE API token - [instructions here](https://github.com/ading2210/poe-api)
+3. Run the script: `python main.py`
+4. Type "record()" to start recording audio input. After recording, the audio will be converted to text.
+5. The text input will be sent to the POE bot and the response will be read aloud.
+6. You can use text input directly instead of recording audio.
+7. Use the "duration", "model", and "clear()" commands to control the assistant.
+8. Press "exit()" at any time to stop the script.
+
+## Notes
+- The default POE bot model is "SophiaAssistantBot", which is a simple assistant bot. You can change this using the "model()" command. For example, "model(leocooks)".
+- The default recording duration is 5 seconds. You can change this using the "duration()" command.
+- Chat history is saved to "response.txt".
