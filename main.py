@@ -15,7 +15,9 @@ Here are some commands you can use:
 - clear(): Clears the chat history of the current bot. No input needed.
 - exit(): Exits the chatbot program. No input needed.
 - duration(seconds): Sets the duration of the recording in seconds. Enter the number of seconds as the input.
-- model(name): Sets the chatbot to use a different poe bot. Enter the name of the model as the input.\n\n
+- model(name): Sets the chatbot to use a different poe bot. Enter the name of the model as the input.
+- mp3(): Imports an mp3 file called sound.mp3 and converts it to variable [mp3], which can be used in the prompt. 
+\n\n
 To get more information on these commands, just type 'help()' and I'll provide you with more details.\n\n
 What can I help you with today?""")
 
@@ -30,6 +32,10 @@ What can I help you with today?""")
 
         if message.lower() == "clear()":
             chatbot.clear()
+            continue
+
+        if message.lower() == "mp3":
+            chatbot.import_mp3()
             continue
 
         if message.startswith("tts"):
