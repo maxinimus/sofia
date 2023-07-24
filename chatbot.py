@@ -41,6 +41,7 @@ class Chatbot:
         print("- exit(): Exits the chatbot program")
         print("- duration(): Sets the duration of the recording in seconds")
         print("- model(): Sets the chatbot to use a different model from poe.com")
+        print("- mp3(): Imports the sound.mp3 file as [mp3] variable that can be used in the input")
         print()
         print("For example, to set the recording duration to 10 seconds, you would enter 'duration(10)'.")
         print("To exit the chatbot program, you would enter 'exit()'.")
