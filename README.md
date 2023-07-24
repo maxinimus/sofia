@@ -15,9 +15,10 @@ An assistant that allows you to chat with POE bots using either text or voice.
 ## Usage
 
 1. Install requirements: `pip install -r requirements.txt`
-2. Setup a POE API token - [instructions here](https://github.com/ading2210/poe-api)
-3. Run the script: `python main.py`
-4. To get a full list of controls, type help() 
+2. Find your POE API token - [instructions here](https://github.com/ading2210/poe-api)
+3. Add the token to your .env file as TOKEN = '...'
+4. Run the script: `python main.py`
+5. To get a full list of controls, type help() 
 
 ## Notes
 - The default POE bot model is "SophiaAssistantBot", which is a simple assistant bot. You can change this using the "model()" command. For example, "model(leocooks)".
