@@ -6,7 +6,8 @@ import sounddevice as sd
 import soundfile as sf
 from transformers import pipeline, SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
 from datasets import load_dataset
-from utils import print_in_green, print_in_red, split_text_into_chunks, sound2text, save_sound, text2sound, record_sound
+from utils import print_in_green, print_in_red, split_text_into_chunks, sound2text, save_sound, text2sound, countdown, record_sound
+
 
 class Chatbot:
     def __init__(self, token):
@@ -29,6 +30,7 @@ class Chatbot:
         self.speaker_embeddings = torch.tensor(self.embeddings_dataset[7306]["xvector"]).unsqueeze(0)
 
         self.tts = False
+        self.mp3 = ""
 
     # print a list of commands that can be used
     def help(self):
@@ -46,6 +48,12 @@ class Chatbot:
     # clear the history of the current bot
     def clear(self):
         client.send_chat_break(model_name)
+
+    def import_mp3():
+        sound2text_output = sound2text("sound.mp3", self.whisper)
+        if sound2text_output is not None:
+            self.mp3 = sound2text_output["text"]
+            print('You can now use the text you have imported as [mp3], which will get replaced with actual text before sending it to the bot')
 
     # set the tts to either true or false (false by default)
     def set_tts(self, message):
@@ -94,6 +102,8 @@ class Chatbot:
         if "[readme]" in message:
             from input import readme
             message = message.replace("[readme]", readme)
+        if "[mp3]" in message:
+            message = message.replace("[mp3]", self.mp3)
 
         # check if sound.mp3 exists
         if os.path.exists('sound.mp3'):

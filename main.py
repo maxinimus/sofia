@@ -1,9 +1,6 @@
 import os
-import logging
-import poe
 from dotenv import load_dotenv
 from chatbot import Chatbot
-from time import sleep
 
 load_dotenv()
 
@@ -11,18 +8,15 @@ def main():
     token = os.getenv("TOKEN")
     chatbot = Chatbot(token)
     
-    print("""Hello! I'm your personal chatbot assistant. You can ask me anything and I'll do my best to help you out.
-
+    print("""Hello! I'm your personal chatbot assistant. You can ask me anything and I'll do my best to help you out.\n\n
 Here are some commands you can use:
 - tts(value): Sets text-to-speech output to true or false. Enter 'true' or 'false' as the value.
 - record(): Records audio for a specified duration and converts it to text. No input needed.
 - clear(): Clears the chat history of the current bot. No input needed.
 - exit(): Exits the chatbot program. No input needed.
 - duration(seconds): Sets the duration of the recording in seconds. Enter the number of seconds as the input.
-- model(name): Sets the chatbot to use a different poe bot. Enter the name of the model as the input.
-
-To get more information on these commands, just type 'help()' and I'll provide you with more details.
-
+- model(name): Sets the chatbot to use a different poe bot. Enter the name of the model as the input.\n\n
+To get more information on these commands, just type 'help()' and I'll provide you with more details.\n\n
 What can I help you with today?""")
 
     while True:
