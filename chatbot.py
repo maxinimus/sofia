@@ -50,7 +50,7 @@ class Chatbot:
     def clear(self):
         client.send_chat_break(model_name)
 
-    def import_mp3():
+    def import_mp3(self):
         sound2text_output = sound2text("sound.mp3", self.whisper)
         if sound2text_output is not None:
             self.mp3 = sound2text_output["text"]

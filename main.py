@@ -34,7 +34,7 @@ What can I help you with today?""")
             chatbot.clear()
             continue
 
-        if message.lower() == "mp3":
+        if message.lower() == "mp3()":
             chatbot.import_mp3()
             continue
 
