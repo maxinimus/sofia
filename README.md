@@ -16,7 +16,7 @@ An assistant that allows you to chat with POE bots using either text or voice.
 
 1. Install requirements: `pip install -r requirements.txt`
 2. Find your POE API token - [instructions here](https://github.com/ading2210/poe-api)
-3. Add the token to your .env file as TOKEN = '...'
+3. Add the token to your .env file as `TOKEN = '...'`
 4. Run the script: `python main.py`
 5. To get a full list of controls, type help() 
 
