@@ -22,6 +22,6 @@ An assistant that allows you to chat with POE bots using either text or voice.
 
 ## Notes
 - The default POE bot model is "SophiaAssistantBot", which is a simple assistant bot. You can change this using the `model()` command. For example, `model(leocooks)`
-- The default recording duration is 5 seconds. You can change this using the `duration()` command (find more info with `help()`).
+- The default recording duration is 5 seconds. You can change this using the `duration()` command (find more info with `help()`
 - Chat history is saved to `response.txt`
 - By default, the tts is turned off, but you can turn it on by writing `tts(true)`
