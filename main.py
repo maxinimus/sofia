@@ -10,9 +10,7 @@ class Main:
 
     def main(self, mp3 = ""):
         token = os.getenv("TOKEN")
-        print('creating bot')
         chatbot = Chatbot(token)
-        print('bot created')
         
         print("""Hello! I'm your personal chatbot assistant. You can ask me anything and I'll do my best to help you out.\n\n
     Here are some commands you can use:
