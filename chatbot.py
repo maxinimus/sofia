@@ -119,11 +119,6 @@ class Chatbot:
         if "[mp3]" in message:
             message = message.replace("[mp3]", self.mp3)
 
-        # check if sound.mp3 exists
-#        if os.path.exists('sound.mp3'):
-#            sound2text_output = sound2text('sound.mp3', self.whisper)
-#            text = sound2text_output['text']
-
         response_text = ""  # Variable to store the chatbot response
 
         print("AI: ", end="", flush=True)
