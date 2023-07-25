@@ -33,6 +33,7 @@ class Main:
 
             if message.lower() == "help()":
                 chatbot.help()
+                continue
 
             if message.lower() == "clear()":
                 chatbot.clear()
