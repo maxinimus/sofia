@@ -1,27 +1,28 @@
 # POE Chat Assistant
 
-An assistant that allows you to chat with POE bots using either text or voice.
+An assistant that allows you to chat with POE bots using text or voice input. Built using a reverse-engineered POE API client.
 
 ## Features
 
-- Record audio using your microphone and convert it to text using the Whisper ASR model.
-- Send text or converted voice input to a POE bot using the POE API client.
-- Receive responses from the POE bot and convert them to speech using Microsoft's SpeechT5 text-to-speech model.
-- Save chat history to a text file.
-- Set the duration of audio recordings.
-- Switch between different POE bot models.
-- Completely free as it uses a reverse engineered poe api. This can basically be used as an alternative to chat gpt api, which is not free.
+- Get help for all available commands using the `help()` command
+- Record audio input using your microphone using the `record()` command
+- Set the duration of audio recordings using the `duration(<seconds>)` command
+- Switch between different POE bot models using the `model(<codename>)` command
+- Toggle text-to-speech for bot responses using the `tts(<true/false>)` command
+- Clear the chat history with the current bot using `clear()` command
+- Exit the assistant using the `exit()` command
 
 ## Usage
 
-1. Install requirements: `pip install -r requirements.txt`
-2. Find your POE API token - [instructions here](https://github.com/ading2210/poe-api)
-3. Add the token to your .env file as `TOKEN = '...'`
+1. Obtain a POE API token by logging into Poe.com and getting the value of the `p-b` cookie
+2. Install requirements: `pip install -r requirements.txt`
+3. Add your POE API token to the .env file as `TOKEN = '<your-token-here>'`
 4. Run the script: `python main.py`
-5. To get a full list of controls, type `help()` 
+5. Use the commands to control the assistant.
 
 ## Notes
-- The default POE bot model is "SophiaAssistantBot", which is a simple assistant bot. You can change this using the `model()` command. For example, `model(leocooks)`
-- The default recording duration is 5 seconds. You can change this using the `duration()` command (find more info with `help()`
+
+- The default bot model is `SophiaAssistantBot`
+- The default recording duration is `5` seconds
 - Chat history is saved to `response.txt`
-- By default, the tts is turned off, but you can turn it on by writing `tts(true)`
+- The reverse-engineered POE API is not officially supported. Use responsibly and observe rate limits to avoid account bans.
