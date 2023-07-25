@@ -112,4 +112,15 @@ def countdown(duration):
     print_in_red("\rRecording in progress...  0")
     print()  # New line after the countdown
 
+# import mp3 file
+def mp3_input(whisper):
+    try:
+        sound2text_output = sound2text("input.mp3", whisper)
+    except IndexError:
+        return -1
 
+    if sound2text_output is not None:
+        mp3 = sound2text_output["text"]
+        return mp3
+
+    return None
