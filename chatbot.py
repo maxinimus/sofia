@@ -49,7 +49,7 @@ class Chatbot:
     
     # clear the history of the current bot
     def clear(self):
-        client.send_chat_break(model_name)
+        self.client.send_chat_break(model_name)
 
     # import sound.mp3 file
     def import_mp3(self):

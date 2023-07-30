@@ -70,7 +70,6 @@ if __name__ == "__main__":
     print("Starting chatbot...")
     main_class = Main()
     while True:
-        print("Calling main function")
         code = main_class.main(main_class.mp3)
         if code == 0:
             break
