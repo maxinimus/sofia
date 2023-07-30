@@ -6,7 +6,7 @@ import sounddevice as sd
 import soundfile as sf
 from transformers import pipeline, SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
 from datasets import load_dataset
-from utils import print_in_green, print_in_red, split_text_into_chunks, sound2text, save_sound, text2sound, countdown, record_sound, mp3_input
+from utils import print_in_green, print_in_red, sound2text, save_sound, text2sound, record_sound, mp3_input
 
 class Chatbot:
     def __init__(self, token, mp3='', tts=False):
@@ -55,19 +55,19 @@ class Chatbot:
     def import_mp3(self):
         # check if input.mp3 exists
         if not os.path.exists('input.mp3'):
-            print("Name the audio file to import 'input.mp3'")
+            print_in_red("Name the audio file to import 'input.mp3'")
             return
         
         
         self.mp3 = mp3_input(self.whisper)
         if self.mp3 == -1:
-            print("Whisper failed to convert sound to text")
+            print_in_red("Whisper failed to convert sound to text")
             return
             
         if self.mp3 is not None:
-            print('You can now use the text you have imported as [mp3], which will get replaced with actual text before sending it to the bot')
+            print_in_green('You can now use the text you have imported as [mp3], which will get replaced with actual text before sending it to the bot')
         else:
-            print("No text was detected")
+            print_in_red("No text was detected")
 
     # set the tts to either true or false (false by default)
     def set_tts(self, message):
@@ -78,7 +78,7 @@ class Chatbot:
         elif tts.lower() == 'false':
             self.tts = False
         else:
-            print("the value must be either true or false, like 'tts(true)'")
+            print_in_red("the value must be either true or false, like 'tts(true)'")
 
     # get the text from the recording
     def record_message(self):
@@ -94,9 +94,9 @@ class Chatbot:
     def set_duration(self, message):
         try:
             self.input_duration = int(message.split("duration")[1].strip()[1:-1])
-            print("Duration set to: " + str(self.input_duration))
+            print_in_green("Duration set to: " + str(self.input_duration))
         except ValueError:
-            print("Duration must be an integer")
+            print_in_red("Duration must be an integer")
 
     # set the model to a new one
     def set_model(self, message):
@@ -107,7 +107,8 @@ class Chatbot:
             self.model_name = "chinchilla"
         elif self.model_name == "sage":
             self.model_name = "capybara"
-        print("Model set to: " + self.model_name)
+
+        print_in_green("Model set to: " + self.model_name)
 
     def process_message(self, message):
         if "[code]" in message:
@@ -121,15 +122,20 @@ class Chatbot:
 
         response_text = ""  # Variable to store the chatbot response
 
-        print("AI: ", end="", flush=True)
+        print("\033[93m{}\033[0m".format('Sent to Bot: '), end="", flush=True)
         try:
+            started = False
             for chunk in self.client.send_message(self.model_name, message, with_chat_break=False):
                 response_text += chunk["text_new"]
+                if not started:
+                    print("\033[94m{}\033[0m".format('AI: '), end="", flush=True)
                 print_in_green(chunk["text_new"])
+                started = True
             print()
         except RuntimeError:
             print("Response timed out, restarting")
             return -1
+        print()
 
         if self.tts:
             # play the response
@@ -142,3 +148,4 @@ class Chatbot:
                 file.write("\n")
                 # Save the response to the file
         return 0
+
