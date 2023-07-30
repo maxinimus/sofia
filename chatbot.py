@@ -102,7 +102,7 @@ class Chatbot:
     def set_model(self, message):
         self.model_name = message.split("model")[1].strip()[1:-1]
         if self.model_name == "":
-            self.model_name = "capybara"
+            self.model_name = "SophiaAssistantBot"
         elif self.model_name == "gpt3":
             self.model_name = "chinchilla"
         elif self.model_name == "sage":
