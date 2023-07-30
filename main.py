@@ -26,6 +26,7 @@ class Main:
     What can I help you with today?""")
 
         while True:
+            print()
             message = input("\033[91mYou: \033[0m")
 
             if message.lower() == "exit()":

@@ -2,8 +2,6 @@ import os
 import torch
 import poe
 import logging
-import sounddevice as sd
-import soundfile as sf
 from transformers import pipeline, SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
 from datasets import load_dataset
 from utils import print_in_green, print_in_red, sound2text, save_sound, text2sound, record_sound, mp3_input
@@ -109,6 +107,7 @@ class Chatbot:
             self.model_name = "capybara"
 
         print_in_green("Model set to: " + self.model_name)
+        print()
 
     def process_message(self, message):
         if "[code]" in message:
@@ -131,7 +130,6 @@ class Chatbot:
                     print("\033[94m{}\033[0m".format('AI: '), end="", flush=True)
                 print_in_green(chunk["text_new"])
                 started = True
-            print()
         except RuntimeError:
             print("Response timed out, restarting")
             return -1
