@@ -1,3 +1,7 @@
+# Important
+
+Poe seems to have made it impossible to use the reverse engineered POE API.
+
 # POE Chat Assistant
 
 An assistant that allows you to chat with POE bots using text or voice input. Built using a reverse-engineered POE API client.
@@ -14,7 +18,11 @@ An assistant that allows you to chat with POE bots using text or voice input. Bu
 
 ## Usage
 
-1. Obtain a POE API token by logging into Poe.com and getting the value of the `p-b` cookie
+1. Obtain a POE API token by logging into Poe.com and getting the value of the `p-b` cookie, as described here [Reversed engineered Poe API](https://github.com/ading2210/poe-api).
+3. Create a `.env` file and place the acquired token in the `TOKEN` field as such
+```.env
+TOKEN = '...'
+```
 2. Install requirements: `pip install -r requirements.txt`
 3. Add your POE API token to the .env file as `TOKEN = '<your-token-here>'`
 4. Run the script: `python main.py`
@@ -26,3 +34,5 @@ An assistant that allows you to chat with POE bots using text or voice input. Bu
 - The default recording duration is `5` seconds
 - Chat history is saved to `response.txt`
 - The reverse-engineered POE API is not officially supported. Use responsibly and observe rate limits to avoid account bans.
+
+# 
